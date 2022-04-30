@@ -20,6 +20,6 @@ jobs:
       - run:
           name: Executing the Test
           command: mvn test -DsuiteXmlFile=RegressionTest.xml
-       - run:
+      - run:
           name: Genarating Report
           command: mvn allure:report

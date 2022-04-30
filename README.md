@@ -7,7 +7,7 @@ Library's used: **RestAssured (For Rest API's),TestNG (Support Test Creation),Lo
 
 ### A comprehesive test summary report including *test-cases, execution status, testing strategy, bug report, reccomendations* and more details can be found in the report linked below:
 
-***[Test Summary Report Link](https://docs.google.com/document/)***
+***[Test Summary Report Link](https://drive.google.com/file/d/1crhXpaQjjXn4LjrsRQNqFggZP-3jLwPC/view?usp=sharing)***
 
 ## Required software
 * Java JDK 8+

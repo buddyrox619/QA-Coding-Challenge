@@ -13,7 +13,7 @@ import static io.restassured.RestAssured.when;
 
 public class PostsFunctionalTest extends BaseAPI {
 
-    @Test(description = "Assert number of posts are equal to 100",groups = "functional")
+    @Test
     public void getAllPosts(){
 
         Response response =  when().get(GET_POST_DETAILS).
@@ -23,7 +23,7 @@ public class PostsFunctionalTest extends BaseAPI {
 
     }
 
-    @Test(description = "Creating a post",groups = "functional")
+    @Test
     public void createPost() {
 
         PostsRequestDTO postsRequestDTO = PostsRequestDTO.builder().userId(1).title("This is a Test Post").

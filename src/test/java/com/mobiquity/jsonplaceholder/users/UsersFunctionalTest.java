@@ -11,10 +11,10 @@ import static io.restassured.RestAssured.when;
 
 public class UsersFunctionalTest extends BaseAPI {
 
-    @Test (description = "Check User Exist",groups = "functional")
+    @Test
     void verifyUserExists() {
 
-        Response response =  when().get(GET_ALL_USERS).
+     Response response =  when().get(GET_ALL_USERS).
                 then().statusCode(200).extract().response();
 
         Assert.assertNotEquals("", JsonPath.with(response.asString()).

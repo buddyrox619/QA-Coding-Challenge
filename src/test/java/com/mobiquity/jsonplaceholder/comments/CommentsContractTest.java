@@ -9,13 +9,14 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 
 public class CommentsContractTest extends BaseAPI {
 
-    @Test(description = "Validate Comments Model ", groups = "contract")
-    public void getPostCommentsSimulation() {
 
-        when().
-                get(GET_ALL_COMMENTS).
-                then().
-                body(matchesJsonSchemaInClasspath("schemas/posts_comments_simulation.json"));
+    @Test
+    public void getPostCommentsSimulation(){
+
+            when().
+                    get(GET_ALL_COMMENTS).
+                    then().
+                    body(matchesJsonSchemaInClasspath("schemas/posts_comments_simulation.json"));
 
     }
 

@@ -6,18 +6,9 @@
 
     <groupId>com.mobiquity.qachallenge</groupId>
     <artifactId>mobiquity_rest_automation</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <properties>
-
-        <java-compiler.version>1.8</java-compiler.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
-        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-        <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
-        <allure.version>2.17.3</allure.version>
-        <allure-maven.version>2.10.0</allure-maven.version>
 
         <restassured.version>5.0.1</restassured.version>
         <testng.version>7.4.0</testng.version>
@@ -25,9 +16,6 @@
         <slf4j.version>2.0.0-alpha7</slf4j.version>
         <lombok.version>1.18.22</lombok.version>
         <owner.version>1.0.12</owner.version>
-        <allure.cmd.download.url>
-            https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline
-        </allure.cmd.download.url>
     </properties>
 
     <dependencies>
@@ -87,64 +75,5 @@
             <artifactId>owner</artifactId>
             <version>${owner.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-testng</artifactId>
-            <version>${allure.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-attachments</artifactId>
-            <version>${allure.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-testng</artifactId>
-            <version>${allure.version}</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin.version}</version>
-                <configuration>
-                    <suiteXmlFiles>
-                        <!--suppress UnresolvedMavenProperty -->
-                        <suiteXmlFile>src/test/resources/testng/${suiteXmlFile}</suiteXmlFile>
-                    </suiteXmlFiles>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
-                <configuration>
-                    <source>${java-compiler.version}</source>
-                    <target>${java-compiler.version}</target>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>${allure-maven.version}</version>
-                <configuration>
-                    <reportVersion>${allure.version}</reportVersion>
-                    <allureDownloadUrl>
-                        ${allure.cmd.download.url}/${allure.version}/allure-commandline-${allure.version}.zip
-                    </allureDownloadUrl>
-                </configuration>
-            </plugin>
-
-        </plugins>
-    </build>
-
 </project>

@@ -15,23 +15,25 @@ public class CommentsFunctionalTest extends BaseAPI {
     private String commentId;
     private String postID = "99";
 
-    @Test(description = "Adding a new Comment to existing post", groups = "functional")
+    @Test
     public void commentOnExistingPost() {
 
         CommentsReqestDTO commentsReqestDTO = CommentsReqestDTO.builder().name("Test Name").
                 email("validemail@gmail.com").
                 body("Lorem Ipsum is simply dummy text of the printing and typesetting industry").build();
 
-        commentId = given().body(commentsReqestDTO).contentType(ContentType.JSON).
+
+
+        commentId =  given().body(commentsReqestDTO).contentType(ContentType.JSON).
                 when().
-                post(GET_POST_COMMENTS.replace("{PostID}", postID)).
+                post(GET_POST_COMMENTS.replace("{PostID}",postID)).
                 then().
                 statusCode(201).extract().response().jsonPath().getString("id");
 
-        logInstruction("Comment ID : " + commentId);
+
     }
 
-    @Test(description = "Update Comment on existing post", dependsOnMethods = "commentOnExistingPost", groups = "functional")
+    @Test
     public void updateCommentonExistingPost() {
 
         CommentsReqestDTO commentsReqestDTO = CommentsReqestDTO.builder().name("Test Name_Updated").
@@ -40,24 +42,28 @@ public class CommentsFunctionalTest extends BaseAPI {
 
         given().body(commentsReqestDTO).contentType(ContentType.JSON).
                 when().
-                patch(UPDATE_COMMENT.replace("{CommentID}", commentId)).
+                patch(UPDATE_COMMENT.replace("{CommentID}",commentId)).
                 then().
                 statusCode(200);
 
+
     }
 
-    @Test(description = "Delete Newly added Comment", dependsOnMethods = "updateCommentonExistingPost", groups = "functional")
+    @Test
     public void deleteAnExistingComment() {
 
         when().
-                delete(DELETE_COMMENT.replace("{CommentID}", commentId)).
+                delete(DELETE_COMMENT.replace("{CommentID}",commentId)).
                 then().
                 statusCode(200);
 
+
     }
 
-    @Test(description = "Adding an Invalid email Comment to existing post", groups = "functional")
+
+    @Test
     public void InvalidCommentOnExistingPost() {
+
 
         CommentsReqestDTO commentsReqestDTO = CommentsReqestDTO.builder().name("Test Name").
                 email("validemailgmail.com").
@@ -65,12 +71,14 @@ public class CommentsFunctionalTest extends BaseAPI {
 
         given().body(commentsReqestDTO).contentType(ContentType.JSON).
                 when().
-                post(GET_POST_COMMENTS.replace("{PostID}", postID)).
+                post(GET_POST_COMMENTS.replace("{PostID}",postID)).
                 then().
                 statusCode(400);
     }
 
-    @Test(description = "Adding a Comment to non existing post", groups = "functional")
+
+
+    @Test
     public void commentOnNonExistingPost() {
 
         CommentsReqestDTO commentsReqestDTO = CommentsReqestDTO.builder().name("Test Name").
@@ -79,10 +87,16 @@ public class CommentsFunctionalTest extends BaseAPI {
 
         given().body(commentsReqestDTO).contentType(ContentType.JSON).
                 when().
-                post(GET_POST_COMMENTS.replace("{PostID}", "1050")).
+                post(GET_POST_COMMENTS.replace("{PostID}","1050")).
                 then().
                 statusCode(400);
 
+
     }
+
+
+
+
+
 
 }

@@ -11,7 +11,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 
 public class PostsContractTest extends BaseAPI {
 
-    @Test
+    @Test (description = "Validate Posts Model ",groups = "contract")
     public void getPostsSimulation(){
         when().
                 get(GET_POST_DETAILS).
@@ -19,10 +19,11 @@ public class PostsContractTest extends BaseAPI {
                 body(matchesJsonSchemaInClasspath("schemas/posts_simulation.json"));
     }
 
-    @Test
-    public void getPostCommentsSimulation(){
+    @Test (description = "Validate Posts - Comment Model ",groups = "contract")
+    @Parameters({"postId"})
+    public void getPostCommentsSimulation(String postId){
         when().
-                get(GET_POST_COMMENTS.replace("{PostID}","99")).
+                get(GET_POST_COMMENTS.replace("{PostID}",postId)).
                 then().
                 body(matchesJsonSchemaInClasspath("schemas/posts_comments_simulation.json"));
     }

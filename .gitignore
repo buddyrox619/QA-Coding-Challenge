@@ -1,8 +1,5 @@
 *.iml
 .idea
 /target
-<<<<<<< HEAD
 .allure
-=======
-.allure
->>>>>>> a20f119d857f5d1aded3425c7902b65e1cdd99c6
+

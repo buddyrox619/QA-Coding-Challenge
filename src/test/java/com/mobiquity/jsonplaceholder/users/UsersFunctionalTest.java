@@ -5,6 +5,8 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import static com.mobiquity.jsonplaceholder.config.RelativeURI.GET_ALL_USERS;
 import static io.restassured.RestAssured.when;
 
 public class UsersFunctionalTest extends BaseAPI {
@@ -12,7 +14,7 @@ public class UsersFunctionalTest extends BaseAPI {
     @Test
     void verifyUserExists() {
 
-     Response response =  when().get("https://jsonplaceholder.typicode.com/users").
+     Response response =  when().get(GET_ALL_USERS).
                 then().statusCode(200).extract().response();
 
         Assert.assertNotEquals("", JsonPath.with(response.asString()).

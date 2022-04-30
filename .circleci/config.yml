@@ -12,11 +12,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: The First Step
+          name: Setting Up the enviorment
           command: sudo apt-get update
       - run:
-          name: The Second Step
+          name: Installing Maven
           command: sudo apt-get install maven
       - run:
-          name: The Third Step
-          command: mvn clean install -DsuiteXmlFile=E2ETest.xml
+          name: Executing the Test
+          command: mvn test -DsuiteXmlFile=RegressionTest.xml
+       - run:
+          name: Genarating Report
+          command: mvn allure:report

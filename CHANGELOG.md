@@ -19,4 +19,23 @@
         - Configuration Interface 
         - Relative URI
         - BaseAPI Updated
+        - E2E workflow implemented
         
+        
+## [1.0.2] 30-04-2022
+
+### Changed
+
+   - Added libraries
+        - alure reporting (For Test Reports)
+        - Log4J for for logging mechanisam
+        - alure reporting (For Test Reports)
+   - Added classes
+        - Configuration Interface 
+        - Relative URI
+        - BaseAPI Updated        
+    - circleci configurations added
+    - TestNG suote xml file added
+    - Updated Tests and Optimized
+    - Updated gitignore file and Readme
+    

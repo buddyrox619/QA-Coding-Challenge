@@ -13,12 +13,14 @@ import static io.restassured.RestAssured.when;
 
 public class E2EWorkflows extends BaseAPI {
 
-    @Test
+    @Test(description = "Get user specific posts & validate emails in the comments", groups = {"e2e", "functional"})
     void validateCommentsForEachPosts() throws Exception {
 
         List<String> newList;
         List<String> emailsList;
         String userId;
+        String regexPattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+                + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
 
         try {
             //1. First step would be to querry the given user name and get the userID
@@ -33,9 +35,6 @@ public class E2EWorkflows extends BaseAPI {
             List<Integer> postIds = JsonPath.with(response.asString()).getList("id");
 
             //3. Third Step would be to to iterate through each and every post and validate email in the comment section
-
-            String regexPattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
-                    + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
 
             newList = new ArrayList<String>();
             for (Integer postId : postIds) {

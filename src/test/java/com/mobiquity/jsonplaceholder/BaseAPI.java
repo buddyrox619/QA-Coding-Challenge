@@ -3,6 +3,9 @@ package com.mobiquity.jsonplaceholder;
 import com.mobiquity.jsonplaceholder.config.Configuration;
 import io.restassured.RestAssured;
 import org.aeonbits.owner.ConfigCache;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
 
 import java.util.ArrayList;
@@ -14,6 +17,7 @@ import static io.restassured.RestAssured.baseURI;
 public class BaseAPI {
 
     protected static Configuration configuration;
+    private static Logger logger = LoggerFactory.getLogger(BaseAPI.class);
 
     @BeforeSuite
     public void beforeAllTests() {
@@ -53,5 +57,9 @@ public class BaseAPI {
         return invalidEmails;
     }
 
+    public void logInstruction(String instruction) {
+        Reporter.log("&bull; " + instruction + "<br/>");
+        logger.info(instruction);
+    }
 
 }

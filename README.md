@@ -62,6 +62,9 @@ Contract and Functional tests to the Simulations user endpoint
 ### src/test/resources
 It has a `schemas` folder with the JSON Schemas to enable Contract Testing using Rest-Assured.Also testng suite xml files and the properties files (configuration & log4J).
 
+### CI implementation 
+It has integrated with the app.circleci.com You can  find the CI details in ***[here](https://app.circleci.com/pipelines/github/buddyrox619/QA-Coding-Challenge?filter=all)*** 
+Its currently getting faild due to two automated test cases are getting failed due to a bugs. 
     
 ## Things to highlight
     1. Builder, Base Test, Request and Responce Specification patterns applied
